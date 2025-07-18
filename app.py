@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Conexión a la base de datos de Render
-DATABASE_URL = "postgresql://registro_usuarios_ib02_user:pxi96oz6qnB7Rixx5ASYeHvqu1DBsXAE@dpg-d1srsuruibrs738jeki0-a.oregon-postgres.render.com/registro_usuarios_ib02"
+DATABASE_URL = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
 
