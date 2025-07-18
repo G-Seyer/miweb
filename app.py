@@ -28,6 +28,11 @@ def index():
         conn.commit()
         return redirect("/")
     return render_template("index.html")
+@app.route("/admin")
+def admin():
+    cur.execute("SELECT * FROM registros")
+    datos = cur.fetchall()
+    return render_template("admin.html", registros=datos)
 
 # EJECUCIÓN CORRECTA PARA RENDER
 if __name__ == "__main__":
